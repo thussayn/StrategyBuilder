@@ -1,0 +1,12 @@
+{
+  "app_title": "Secure Modular Starter",
+  "default_language": "en",
+  "default_theme": "light",
+  "allowed_themes": [
+    "ocean",
+    "light",
+    "solar",
+    "midnight"
+  ],
+  "logo_path": ""
+}
