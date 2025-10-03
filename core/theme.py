@@ -797,3 +797,5 @@ def apply_navigation_fix():
     </style>
     """
     st.markdown(fix_css, unsafe_allow_html=True)
+
+    

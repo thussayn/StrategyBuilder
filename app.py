@@ -2,6 +2,9 @@
 import streamlit as st
 from streamlit_cookies_manager import EncryptedCookieManager
 
+import os
+os.makedirs("assets/logos", exist_ok=True)
+
 # Set page config early
 st.set_page_config(
     page_title="Secure Modular Starter", 
@@ -56,6 +59,7 @@ from features import auth as auth_feature
 from core.layout import app_header, app_footer
 from features import dashboard_admin, dashboard_editor, dashboard_viewer, home, about
 from core.theme import apply_theme, apply_navigation_fix
+
 
 # Sidebar
 with st.sidebar:
@@ -136,33 +140,48 @@ else:
     about_label = get_text("about_title")
     dashboard_label = get_text("dashboard")
     settings_label = get_text("settings")
-
+    
+    # قائمة التبويبات الأساسية
     tab_labels = [home_label, about_label, dashboard_label, settings_label]
+    
+    # إضافة تبويب "إدارة الاستراتيجيات" لـ Admin و Editor فقط
+    strategy_label = None
+    if role in ["Admin", "Editor"]:
+        strategy_label = get_text("strategy_management")
+        tab_labels.append(strategy_label)
 
     # تحديد index التبويب النشط
     tab_index = 0
     if st.session_state.active_tab == "About":
         tab_index = 1
-    elif st.session_state.active_tab == "Dashboard": 
+    elif st.session_state.active_tab == "Dashboard":
         tab_index = 2
     elif st.session_state.active_tab == "Settings":
         tab_index = 3
+    elif st.session_state.active_tab == "Strategy" and strategy_label:
+        tab_index = 4
 
-    tab = st.tabs(tab_labels)
+    tabs = st.tabs(tab_labels)
 
-    with tab[0]:
+    with tabs[0]:
         home.render()
-    with tab[1]:
+    with tabs[1]:
         about.render()
-    with tab[2]:
+    with tabs[2]:
         if role == "Admin":
             dashboard_admin.render()
         elif role == "Editor":
             dashboard_editor.render()
         else:
             dashboard_viewer.render()
-    with tab[3]:
+    with tabs[3]:
         from ui.forms import settings_form
         settings_form(cookies=cookies)
+    
+    # عرض تبويب "إدارة الاستراتيجيات" إذا كان موجودًا
+    if role in ["Admin", "Editor"]:
+        with tabs[4]:
+            from features import strategy_management
+            strategy_management.render()
 
 app_footer(lang=st.session_state.lang)

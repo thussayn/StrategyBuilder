@@ -1,7 +1,7 @@
 # settings/config.py
 import json
 import os
-from dataclasses import dataclass, asdict
+from dataclasses import dataclass, asdict  # ✅ تصحيح اسم المكتبة
 
 CONFIG_PATH = "app_config.json"
 
@@ -9,9 +9,14 @@ CONFIG_PATH = "app_config.json"
 class AppConfig:
     app_title: str = "Secure Modular Starter"
     default_language: str = "en"
-    default_theme: str = "modern_light"  # ✅ غيرها إلى ثيم موجود
-    allowed_themes: tuple = ("modern_light", "professional_dark", "warm_earth")  # ✅ حدّث القائمة
+    default_theme: str = "modern_light"
+    allowed_themes: tuple = ("modern_light", "professional_dark", "warm_earth")
     logo_path: str = ""
+    
+    # ✅ الإعدادات الجديدة لرفع اللوجوهات
+    upload_folder: str = "assets/logos"
+    max_upload_size: int = 5 * 1024 * 1024  # 5MB
+    allowed_logo_extensions: tuple = (".png", ".jpg", ".jpeg")
     
     @staticmethod
     def load():
