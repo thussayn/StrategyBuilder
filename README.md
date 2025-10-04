@@ -41,6 +41,12 @@ StrategyBuilder/
 │   ├── dashboard_viewer.py # لوحة تحكم المشاهد
 │   ├── home.py           # الصفحة الرئيسية
 │   ├── strategy_management.py # صفحة إدارة الاستراتيجيات
+│   ├── strategy_export.py - وظائف التصدير (Word, PDF)
+│   ├── strategy_dialogs.py - الـ Dialogs لاختيار الرؤية والرسالة
+│   ├── strategy_ui.py - مكونات واجهة المستخدم
+│   ├── strategy_crud.py - عمليات CRUD الأساسية
+│   ├── strategy_operations.py - العمليات والمنطق
+│   ├── strategy_management.py - الملف الرئيسي (مخفض)
 │   └── __pycache__/      # ملفات بايثون المترجمة
 │
 ├── settings              # ملفات الإعدادات الخاصة بالمشروع

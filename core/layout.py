@@ -29,7 +29,7 @@ def app_footer(lang: str = "en"):
         f"""
         <hr/>
         <div style="opacity:.7;font-size:.9rem;direction:{direction};text-align:{text_align};">
-            Built with Streamlit • Secure Modular Starter
+            [جميع الحقوو ق محفوظة © 2025 - Basic Systems Co.](https://basicsystems.sa) |
         </div>
         """,
         unsafe_allow_html=True,

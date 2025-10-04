@@ -8,7 +8,7 @@ LANGS = {
 
 _DEF_TEXTS = {
     # === App Structure ===
-    "app_title": {"en": "Secure Modular Starter", "ar": "قالب ستريمليت آمن ومنظّم"},
+    "app_title": {"en": "Unified Strategy Management System", "ar": "نظام  إدارة الاستراتيجيات الموحد"},
     "language": {"en": "Language", "ar": "اللغة"},
     "theme": {"en": "Theme", "ar": "الثيم"},
     "logout": {"en": "Log out", "ar": "تسجيل الخروج"},

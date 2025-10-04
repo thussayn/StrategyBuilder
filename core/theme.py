@@ -174,6 +174,7 @@ def _dir_class(lang: str) -> str:
     return "html-rtl" if LANGS.get(lang, {}).get("dir") == "rtl" else "html-ltr"
 
 def apply_theme(theme_key: str, lang: str):
+
     # ✅ تحميل فونت عربي أنيق: Tajawal
     st.markdown("""
     <style>
@@ -722,6 +723,7 @@ def apply_theme(theme_key: str, lang: str):
         font_family=font_family
     )
     
+
     st.markdown(css, unsafe_allow_html=True)
 
 
